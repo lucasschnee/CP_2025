@@ -1515,3 +1515,53 @@ class BitTrie:
                 return ans
 
         return ans
+
+
+
+
+
+#maximum matching in bipartite graph (u, v) pairs
+class UnionFind:
+    def __init__(self, N):
+        self.parent = list(range(N))
+        self.size = [1]*N
+    
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+    
+    def union(self, x, y):
+        xr, yr = self.find(x), self.find(y)
+        if xr == yr:
+            return
+        if self.size[xr] < self.size[yr]:
+            xr, yr = yr, xr
+        self.parent[yr] = xr
+        self.size[xr] += self.size[yr]
+
+def get_maximum_matching(A):
+    N = len(A)
+    vals = set()
+    for u,v in A:
+        vals.add(u)
+        vals.add(v)
+    vals = list(vals)
+    val_to_idx = {v:i for i,v in enumerate(vals)}
+    M = len(vals)
+    uf = UnionFind(N + M)
+    for i, (u, v) in enumerate(A):
+        uf.union(i, N + val_to_idx[u])
+        uf.union(i, N + val_to_idx[v])
+    slot_count = {}
+    val_count = {}
+    for i in range(N):
+        r = uf.find(i)
+        slot_count[r] = slot_count.get(r, 0) + 1
+    for i in range(M):
+        r = uf.find(N + i)
+        val_count[r] = val_count.get(r, 0) + 1
+    res = 0
+    for r in slot_count:
+        res += min(slot_count[r], val_count.get(r, 0))
+    return res
