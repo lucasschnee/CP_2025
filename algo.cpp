@@ -67,6 +67,11 @@ int main() {
     };
 
     std::sort(intervals.begin(), intervals.end(), myCmp);
+}
+
+
+char upper = std::toupper(ch);  // converts to uppercase 'A'
+    char lower = std::tolower(upper); // converts back to lowercase 'a'
 
 
 
