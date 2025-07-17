@@ -74,4 +74,5 @@ char upper = std::toupper(ch);  // converts to uppercase 'A'
     char lower = std::tolower(upper); // converts back to lowercase 'a'
 
 
+if (c >= '0' && c <= '9')
 
