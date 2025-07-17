@@ -4,3 +4,8 @@ for (int i=0; i<n; ++i) {
 }
 
 vector<int> v1;
+
+ auto it = s.find(4);
+    if (it != s.end()) {
+    
+ }
