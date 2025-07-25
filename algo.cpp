@@ -11,7 +11,7 @@ vector<int> v1;
  }
 
  int x = std::stoi(s);  // string to int
-
+ char b = (c-'0'); // char to int
 
 struct UnionFind {
     std::vector<int> parent;
