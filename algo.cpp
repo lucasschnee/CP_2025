@@ -3,6 +3,10 @@ vector<pair<int, int>> directions = {{0,1},{0,-1},{-1,0},{1,0}};
 for (int i=0; i<n; ++i) {
 }
 
+ll gcd(ll a, ll b) {
+    return b == 0 ? a : gcd(b, a % b);
+}
+
 vector<int> v1;
 
  auto it = s.find(4);
