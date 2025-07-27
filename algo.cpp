@@ -1,5 +1,7 @@
 vector<pair<int, int>> directions = {{0,1},{0,-1},{-1,0},{1,0}};
 
+
+// N * (N + 1) * (N + 2) // 6 -> sum of all subarray lengths
 for (int i=0; i<n; ++i) {
 }
 
