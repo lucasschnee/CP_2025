@@ -1,5 +1,16 @@
 vector<pair<int, int>> directions = {{0,1},{0,-1},{-1,0},{1,0}};
 
+ll modInverse(ll q, ll MOD) {
+    ll res = 1, exp = MOD - 2;
+    q %= MOD;
+    while (exp) {
+        if (exp & 1)
+            res = res * q % MOD;
+        q = q * q % MOD;
+        exp >>= 1;
+    }
+    return res;
+}
 
 // N * (N + 1) * (N + 2) // 6 -> sum of all subarray lengths
 for (int i=0; i<n; ++i) {
