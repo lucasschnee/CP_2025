@@ -101,3 +101,12 @@ if (c >= '0' && c <= '9')
 priority_queue<int> maxHeap;
 priority_queue<int, vector<int>, greater<int>> minHeap;
 
+
+bool isPowerOfTwo(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+
+int calculateBitLength(int n) {
+    return n > 0 ? static_cast<int>(std::floor(std::log2(n))) + 1 : 0;
+}
+
